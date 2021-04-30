@@ -12,10 +12,18 @@ var convtab = map[int]string{0:"Zero",1:"One",2:"Two",3:"Three",4:"Four",
 func main(){
 	//read the command line input
 	args :=os.Args
+	if len(args)==1 {
+		panic("Please use command line input to enter the integers! ")
+	}
 	//phoneticList is the array that we store our output strings
 	var phoneticList []string
+
 	//for every input in the command line input
 	for i:=0;i< len(args)-1;i++{
+		if (string(args[i+1][0])=="0" &&len(args[i+1])>1)||
+			(string(args[i+1][0])=="-" && string(args[i+1][1])=="0"&&len(args[i+1])>2){
+			panic("Invalid integer form: "+args[i+1]+"! Do not start a integer with 0 except for 0!")
+		}
 		negative := 0
 		//convert it to integer value
 		num,err:=strconv.Atoi(args[i+1])
