@@ -42,3 +42,6 @@ Then run it with
 ```
 go run main.go input1 input2 input3
 ```
+### Complexity
+
+The time complexity of this program should be O(N*L), and space complexity should be O(N), where N is the input size and L is the number of digits
